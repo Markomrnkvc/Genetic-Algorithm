@@ -285,7 +285,18 @@ class Game:
             print("no food left")            
     
             
+            
+            
+            ### Mögliches Laufzeitproblem: Doppelte For-Schleife sorgt für Quadratische Laufzeit O(n2)
+        #self.safe_data()
 
+    def safe_data(self):
+        with open('agents_daten.csv', 'w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(['Number', 'Tribe', 'Kondition', 'Visibilityrange', 'Fortpflanzungs-Counter', 'Position'])
+            for agent in self.board.agents_list:
+                writer.writerow([agent.number, agent.genetic['Tribe'], agent.genetic['Kondition'], agent.genetic['Visibilityrange'], agent.reproduction_counter, agent.position])
+                
 # Counter einfügen wie oft sich ein Agents fortgepflanzt hat 
 # Stammesangehörigkeit ausbessern: Aktuell Tupel für Stamm des Kindes
 
