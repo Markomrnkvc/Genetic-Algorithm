@@ -130,6 +130,10 @@ class Board:
             x, y = agent.position
             self.world[x][y] += 1
         
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9da7217f0f8d8e475a6b3583fc54a7f9ad6da391
     def remove_agents(self, agent):
         #removing the agents in the list 'lebewesen'
         self.agents_list.remove(agent)
@@ -285,10 +289,34 @@ class Game:
             print("no food left")            
     
             
+<<<<<<< HEAD
+=======
+        print(type(self.board))
+        for round in range(ROUNDS):
+            if round % 10 == 0:
+                self.board.place_food(ADDITIONAL_FOOD_PERCENTAGE)
+                
+                
+            for agent in self.board.agents_list[:]:
+                #bewegt die agents
+                result = agent.move(self.board)
+
+                
+                #schaut ob der agent deceased ist, wenn ja, dann entfernt er diesen
+                if result == "deceased":
+                    self.board.remove_agents(agent)
+
+                #wenn agent noch lebt wird die fortpflanzung weitergeführt
+                    #vergleicht Agent mit potentiellen partnern
+                else:
+                    for partner in self.board.agents_list:
+                        if agent != partner:
+                            agent.reproduce(partner, self.board)
             
             
             ### Mögliches Laufzeitproblem: Doppelte For-Schleife sorgt für Quadratische Laufzeit O(n2)
-        #self.safe_data()
+        self.safe_data()
+>>>>>>> 9da7217f0f8d8e475a6b3583fc54a7f9ad6da391
 
     def safe_data(self):
         with open('agents_daten.csv', 'w', newline='') as file:
@@ -297,6 +325,11 @@ class Game:
             for agent in self.board.agents_list:
                 writer.writerow([agent.number, agent.genetic['Tribe'], agent.genetic['Kondition'], agent.genetic['Visibilityrange'], agent.reproduction_counter, agent.position])
                 
+<<<<<<< HEAD
+
+=======
+    
+>>>>>>> 9da7217f0f8d8e475a6b3583fc54a7f9ad6da391
 # Counter einfügen wie oft sich ein Agents fortgepflanzt hat 
 # Stammesangehörigkeit ausbessern: Aktuell Tupel für Stamm des Kindes
 
